@@ -485,15 +485,18 @@ class BirdeyeRender(object):
         if ID == self.hero_id:
           # red
           color = pygame.Color(255, math.floor(color_value*255), math.floor(color_value*255))
+          pygame.draw.polygon(surface, color, corners)
         else:
           if actor_type == 'vehicle':
             # green
-            color = pygame.Color(math.floor(color_value*255), 255, math.floor(color_value*255))
+            # color = pygame.Color(math.floor(color_value*255), 255, math.floor(color_value*255))
+            pass
           elif  actor_type == 'walker':
             # yellow
             color = pygame.Color(255, 255, math.floor(color_value*255))
+            pygame.draw.polygon(surface, color, corners)
           
-        pygame.draw.polygon(surface, color, corners)
+        # pygame.draw.polygon(surface, color, corners)
 
   def render_waypoints(self, surface, waypoints, world_to_pixel):
     if self.red_light:
